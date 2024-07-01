@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import SliderNumber from "../slider/slider-number";
+import SliderNumber from "../range-slider/range-slider";
 
 interface FilterProps {
   classname?: string;
@@ -109,7 +109,7 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
       </ul>
       <div className="pt-6">
         <p className="text-black text-lg font-bold mb-5 border-b">Price</p>
-        <SliderNumber minData={0} maxData={100} min={20} max={50} />
+        <SliderNumber minData={30} maxData={50} min={0} max={100} />
       </div>
     </div>
   );
