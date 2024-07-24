@@ -1,4 +1,4 @@
-import Filter from "@/components/filters/filter";
+import Filter from "@/components/products-page/filters/filter";
 import React from "react";
 
 function Shop() {

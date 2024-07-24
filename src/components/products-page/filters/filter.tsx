@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
-import SliderNumber from "../range-slider/range-slider";
+import RangePrice from "./range-price";
+import FilterColors from "./filter-colors";
 
 interface FilterProps {
   classname?: string;
@@ -25,7 +26,7 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
           </svg>
         </span>
       </p>
-      <ul className="pt-4 border-b   ">
+      <ul className="pt-4 border-b">
         <li className="flex items-center justify-between text-black text-opacity-60 py-[11px]">
           <span>T-shirts</span>
           <svg
@@ -107,10 +108,19 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
           </svg>
         </li>
       </ul>
-      <div className="pt-6">
-        <p className="text-black text-lg font-bold mb-5 border-b">Price</p>
-        <SliderNumber minData={30} maxData={50} min={0} max={100} />
-      </div>
+      <RangePrice />
+      <FilterColors
+        colors={[
+          "red",
+          "green",
+          "yellow",
+          "white",
+          "#ff53dd",
+          "#af53dd",
+          "#afccdd",
+          "#afcc12",
+        ]}
+      />
     </div>
   );
 };

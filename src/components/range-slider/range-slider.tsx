@@ -7,18 +7,22 @@ import {
   useState,
 } from "react";
 
-interface SliderNumberProps {
+interface RangeSliderProps {
   min: number;
   max: number;
   maxData: number;
   minData: number;
+  className?: string;
+  onchange?: (min: number, max: number) => void;
 }
 
-const SliderNumber: FunctionComponent<SliderNumberProps> = ({
+const RangeSlider: FunctionComponent<RangeSliderProps> = ({
   min,
   maxData,
   minData,
   max,
+  className,
+  onchange,
 }) => {
   const [data, setData] = useState<{ minValue: number; maxValue: number }>({
     minValue: minData,
@@ -29,24 +33,34 @@ const SliderNumber: FunctionComponent<SliderNumberProps> = ({
     [max, min]
   );
   const range = useRef<HTMLDivElement>(null);
+  const slider = useRef<HTMLDivElement>(null);
   const minToolTip = useRef<HTMLDivElement>(null);
   const maxToolTip = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const minPerсent = getPerсent(data.minValue);
     const maxPercent = getPerсent(data.maxValue);
     if (minToolTip.current) {
-      minToolTip.current.style.left = `${minPerсent}%`;
+      const pos =
+        20 * (minPerсent / 100 - 0.5) * -1 - minToolTip.current.offsetWidth / 2;
+      minToolTip.current.style.left = `calc(${minPerсent}% + ${pos}px)`;
     }
     if (maxToolTip.current) {
-      maxToolTip.current.style.left = `${maxPercent}%`;
+      const pos =
+        20 * (maxPercent / 100 - 0.5) * -1 - maxToolTip.current.offsetWidth / 2;
+      maxToolTip.current.style.left = `calc(${maxPercent}% + ${pos}px)`;
     }
     if (range.current) {
       range.current.style.left = `${minPerсent}%`;
       range.current.style.width = `${maxPercent - minPerсent}%`;
     }
   }, [data, getPerсent]);
+
+  useEffect(() => {
+    if (onchange) onchange(data.minValue, data.maxValue);
+  }, [data, onchange]);
+
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <div className="h-[1px]">
         <input
           type="range"
@@ -76,15 +90,21 @@ const SliderNumber: FunctionComponent<SliderNumberProps> = ({
           className="h-full rounded-full bg-black absolute"
           ref={range}
         ></div>
-        <div className="absolute top-3" ref={minToolTip}>
-          {data.minValue}
+        <div
+          className="absolute top-3 text-sm font-medium mt-1"
+          ref={minToolTip}
+        >
+          ${data.minValue}
         </div>
-        <div className="absolute top-3" ref={maxToolTip}>
-          {data.maxValue}
+        <div
+          className="absolute top-3 text-sm font-medium mt-1"
+          ref={maxToolTip}
+        >
+          ${data.maxValue}
         </div>
       </div>
     </div>
   );
 };
 
-export default SliderNumber;
+export default RangeSlider;
