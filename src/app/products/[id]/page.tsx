@@ -2,7 +2,7 @@ import Counter from "@/components/counter/counter";
 import Rating from "@/components/costumers/rating";
 import GalaryProducts from "@/components/product-page-components/gallery/galleryProducts";
 import PopularProducts from "@/components/product/popularProducts";
-import ProductColor from "@/components/product/product-color";
+import ProductColor from "@/components/product/color/product-color";
 import ProductSize from "@/components/product/product-size";
 import Tab from "@/components/tabs/tab";
 import Tabs from "@/components/tabs/tabs";

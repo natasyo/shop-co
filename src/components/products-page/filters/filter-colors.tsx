@@ -1,5 +1,5 @@
 "use client";
-import ProductColor from "@/components/product/product-color";
+import ProductColor from "@/components/product/color/product-color";
 import { FunctionComponent, useState } from "react";
 
 interface FilterColorsProps {
