@@ -58,7 +58,7 @@ const ProductPage: FunctionComponent<ProductPageProps> = async ({ params }) => {
 
           <ProductColor
             className="py-6 border-b"
-            colors={["red", "black", "green", "grey"]}
+            colors={["red", "black", "green", "grey", "white"]}
             currentColor="black"
           />
 

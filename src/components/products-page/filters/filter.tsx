@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import RangePrice from "./range-price";
 import FilterColors from "./filter-colors";
+import FilterSize from "./filter-size";
 
 interface FilterProps {
   classname?: string;
@@ -114,13 +115,20 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
           "red",
           "green",
           "yellow",
+          "black",
           "white",
           "#ff53dd",
           "#af53dd",
           "#afccdd",
           "#afcc12",
+          "#33cc12",
+          "#330012",
+          "#3322bb",
+          "#cf1900",
+          "#931900",
         ]}
       />
+      <FilterSize />
     </div>
   );
 };
