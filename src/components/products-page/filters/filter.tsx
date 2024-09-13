@@ -128,7 +128,7 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
           "#931900",
         ]}
       />
-      <FilterSize />
+      <FilterSize sizes={["XS", "S", "M"]} />
     </div>
   );
 };
