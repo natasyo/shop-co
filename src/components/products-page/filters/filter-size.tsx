@@ -1,6 +1,7 @@
 "use client";
 import ProductSize from "@/components/product/product-size";
 import Size from "@/components/product/size/size";
+import Sizes from "@/components/product/size/sizes";
 import { FunctionComponent, useState } from "react";
 
 interface FilterSizeProps {
@@ -52,10 +53,10 @@ const FilterSize: FunctionComponent<FilterSizeProps> = ({
               : `max-h-0 overflow-hidden transition`
           }
         >
-          {/* <ProductSize defaulttSize="s"/> */}
-          {/* {sizes.map((size) => (
-            <Size key={size} size={size} />
-          ))} */}
+          <Sizes
+            defaulttSize="Small"
+            sizes={["XX-Small", "X-Small", "Small", "Large"]}
+          />
         </div>
       </div>
     </>

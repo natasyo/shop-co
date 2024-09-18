@@ -129,6 +129,9 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
         ]}
       />
       <FilterSize sizes={["XS", "S", "M"]} />
+      <button className="h-[52px] mt-6 bg-black w-full text-white rounded-full">
+        Apply Filter
+      </button>
     </div>
   );
 };

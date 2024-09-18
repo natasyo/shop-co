@@ -1,5 +1,6 @@
 "use client";
 import { FunctionComponent, useState } from "react";
+import Sizes from "./size/sizes";
 
 interface ProductSizeProps {
   className?: string;
@@ -17,7 +18,8 @@ const ProductSize: FunctionComponent<ProductSizeProps> = ({
     <div className={`${className}`}>
       <p className="text-black text-opacity-60 mb-4">Choose Size</p>
       <div className="flex flex-wrap">
-        {sizes.map((size) => (
+        <Sizes sizes={sizes} />
+        {/* {sizes.map((size) => (
           <label
             key={size}
             className={`py-3 px-6 rounded-full mr-3 cursor-pointer mb-3 ${
@@ -36,7 +38,7 @@ const ProductSize: FunctionComponent<ProductSizeProps> = ({
               onChange={(e) => setCurrentSize(e.target.value)}
             />
           </label>
-        ))}
+        ))} */}
       </div>
     </div>
   );
