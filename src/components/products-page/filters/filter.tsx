@@ -112,7 +112,6 @@ const Filter: FunctionComponent<FilterProps> = ({ classname }) => {
       <RangePrice />
       <FilterColors
         colors={[
-          "red",
           "green",
           "yellow",
           "black",
